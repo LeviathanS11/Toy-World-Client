@@ -3,7 +3,7 @@ import logo from '../../../assets/cover.png';
 
 const Footer = () => {
     return (
-<footer className="footer footer-center bg-sky-400 text-primary-content leading-none gap-y-2.5 p-5">
+<footer className="footer footer-center bg-zinc-300 text-primary-content leading-none gap-y-2.5 p-5">
   <div>
     <img style={{height:'50px'}} src={logo} alt="" />
     <p className="font-bold">
