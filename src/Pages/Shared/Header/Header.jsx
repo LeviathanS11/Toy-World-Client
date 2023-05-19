@@ -4,7 +4,7 @@ import logo from '../../../assets/cover.png';
 
 const Header = () => {
     return (
-        <div className="navbar bg-zinc-300">
+        <div className="navbar bg-zinc-300 ">
             <div className="navbar-start">
                 <img style={{ height: '50px' }} src={logo} alt="" />
             </div>
