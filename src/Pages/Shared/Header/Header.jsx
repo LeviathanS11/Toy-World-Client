@@ -16,7 +16,7 @@ const Header = () => {
                 <Link className='ml-2 hover:text-orange-400'>Add Toys</Link>
             </div>
             <div className="navbar-end">
-            <Link><button className="btn btn-xs">Login</button></Link>
+            <Link to="/login"><button className="btn btn-xs">Login</button></Link>
             <Link><button className="btn btn-xs">Logout</button></Link>
             <img style={{ height: '50px' }} src={logo} alt="" />
             </div>
