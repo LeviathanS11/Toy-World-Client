@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import {  GoogleAuthProvider } from "firebase/auth";
 import { Form, Link } from 'react-router-dom';
@@ -21,6 +21,8 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
+                setUser(loggedUser);
+                console.log(loggedUser)
                 form.reset();
             })
             .catch(error => {
@@ -32,6 +34,7 @@ const Login = () => {
         handleGoogle(GoogleProvider)
             .then(result => {
                 const loggedUser = result.user;
+                console.log(loggedUser)
             })
             .catch(error => {
                 console.log(error.message)
