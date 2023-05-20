@@ -8,6 +8,8 @@ import Register from "../Register/Register";
 import AllToys from "../AllToys/AllToys";
 import AddToys from "../AddToys/AddToys";
 import ToyDetails from "../AllToys/ToyDetails";
+import MyToy from "../MyToy/MyToy";
+import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
     {
@@ -46,7 +48,10 @@ const router = createBrowserRouter([
     {
       path:'/addToys',
       element:<AddToys></AddToys>
-
+    },
+    {
+      path:'/myToy',
+      element:<PrivateRoutes><MyToy></MyToy></PrivateRoutes>
     }
   ]);
 

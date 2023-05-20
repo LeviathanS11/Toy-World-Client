@@ -18,7 +18,7 @@ const Header = () => {
                 
                 {
                     user && <div>
-                    <Link className='ml-2 hover:text-orange-400'>My Toys</Link>
+                    <Link to="/myToy" className='ml-2 hover:text-orange-400'>My Toys</Link>
                     <Link to='/addToys' className='ml-2 hover:text-orange-400'>Add Toys</Link>
                     </div>
                 }
