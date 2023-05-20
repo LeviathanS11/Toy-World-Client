@@ -14,12 +14,12 @@ const Header = () => {
             <div className="navbar-center ">
                 <Link to="/" className='ml-2 hover:text-orange-400'>Home</Link>
                 <Link to="/blog" className='ml-2 hover:text-orange-400'>Blog</Link>
-                <Link className='ml-2 hover:text-orange-400'>All Toys</Link>
+                <Link to="/allToys" className='ml-2 hover:text-orange-400'>All Toys</Link>
                 
                 {
                     user && <div>
                     <Link className='ml-2 hover:text-orange-400'>My Toys</Link>
-                    <Link className='ml-2 hover:text-orange-400'>Add Toys</Link>
+                    <Link to='/addToys' className='ml-2 hover:text-orange-400'>Add Toys</Link>
                     </div>
                 }
             </div>
