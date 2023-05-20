@@ -1,12 +1,16 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import ToyTable from './ToyTable';
+import Header from '../Pages/Shared/Header/Header';
+import Footer from '../Pages/Shared/Footer/Footer';
 
 const AllToys = () => {
     const getToys = useLoaderData();
 
     return (
-        <div className="overflow-x-auto w-full">
+        <div>
+            <Header></Header>
+            <div className="overflow-x-auto w-full">
             <table className="table w-full">
                 <thead>
                     <tr>
@@ -24,6 +28,8 @@ const AllToys = () => {
                     }
                 </tbody>
             </table>
+        </div>
+        <Footer></Footer>
         </div>
     );
 };
