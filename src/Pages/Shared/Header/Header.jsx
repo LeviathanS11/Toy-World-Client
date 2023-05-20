@@ -5,7 +5,6 @@ import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import { FaUserCircle } from "react-icons/fa";
 
 const Header = () => {
-    const [isHovered, setIsHovered] = useState(false);
     const { user, logOut } = useContext(AuthContext)
     return (
         <div className="navbar bg-zinc-300 ">
@@ -16,8 +15,13 @@ const Header = () => {
                 <Link to="/" className='ml-2 hover:text-orange-400'>Home</Link>
                 <Link to="/blog" className='ml-2 hover:text-orange-400'>Blog</Link>
                 <Link className='ml-2 hover:text-orange-400'>All Toys</Link>
-                <Link className='ml-2 hover:text-orange-400'>My Toys</Link>
-                <Link className='ml-2 hover:text-orange-400'>Add Toys</Link>
+                
+                {
+                    user && <div>
+                    <Link className='ml-2 hover:text-orange-400'>My Toys</Link>
+                    <Link className='ml-2 hover:text-orange-400'>Add Toys</Link>
+                    </div>
+                }
             </div>
             <div className="navbar-end">
                 {user ? <button onClick={logOut} className="btn btn-xs">Logout</button> :
