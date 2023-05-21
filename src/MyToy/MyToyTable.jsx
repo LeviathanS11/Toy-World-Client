@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const MyToyTable = ({ toy }) => {
+const MyToyTable = ({ toy,setMyToy,myToy }) => {
     const { name, toyName, category, price, quantity,_id } = toy;
     const handleDelete=_id=>{
         const proceed=confirm('are you sure?');
@@ -12,6 +12,8 @@ const MyToyTable = ({ toy }) => {
             .then(res=>res.json())
             .then(data=>{
                 console.log(data)
+                const remaining=myToy.filter(T=>T._id !==_id)
+                setMyToy(remaining)
             })
         }
     }
@@ -30,7 +32,7 @@ const MyToyTable = ({ toy }) => {
                 <Link to={`/details/${_id}`}><button className="btn btn-ghost btn-xs">details</button></Link>
             </th>
             <th>
-            <button className="btn btn-ghost btn-xs">Update</button>
+            <Link to={`/update/${_id}`}><button className="btn btn-ghost btn-xs">Update</button></Link>
             </th>
             <th>
             <button onClick={()=>handleDelete(_id)} className="btn btn-ghost btn-xs">Delete</button>

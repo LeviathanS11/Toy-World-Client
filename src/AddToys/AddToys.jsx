@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Header from '../Pages/Shared/Header/Header';
 import { Form } from 'react-router-dom';
 import Footer from '../Pages/Shared/Footer/Footer';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const AddToys = () => {
+    const {user}=useContext(AuthContext)
 
     const handleAddToys=event=>{
         event.preventDefault();
@@ -22,7 +24,7 @@ const AddToys = () => {
 
         console.log(all)
 
-        fetch('http://localhost:5000/toys',{
+        fetch('https://assignment-11-server-leviathans11.vercel.app/toys',{
             method:'POST',
             headers:{
                 'content-type':'application/json'
@@ -67,7 +69,7 @@ const AddToys = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="text" name='email' required placeholder="email" className="input input-bordered" />
+                            <input type="text" defaultValue={user?.email} name='email' required placeholder="email" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">

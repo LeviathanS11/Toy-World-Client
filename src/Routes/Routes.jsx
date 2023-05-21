@@ -10,6 +10,7 @@ import AddToys from "../AddToys/AddToys";
 import ToyDetails from "../AllToys/ToyDetails";
 import MyToy from "../MyToy/MyToy";
 import PrivateRoutes from "./PrivateRoutes";
+import ToyUpdate from "../Update/ToyUpdate";
 
 const router = createBrowserRouter([
     {
@@ -52,6 +53,11 @@ const router = createBrowserRouter([
     {
       path:'/myToy',
       element:<PrivateRoutes><MyToy></MyToy></PrivateRoutes>
+    },
+    {
+      path:'/update/:id',
+      element:<ToyUpdate></ToyUpdate>,
+      loader:({params})=>fetch(`https://assignment-11-server-leviathans11.vercel.app/toys/${params.id}`)
     }
   ]);
 

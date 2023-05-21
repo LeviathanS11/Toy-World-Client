@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import Header from '../Pages/Shared/Header/Header';
 import Footer from '../Pages/Shared/Footer/Footer';
-import ToyTable from '../AllToys/ToyTable';
 import MyToyTable from './MyToyTable';
 
 const MyToy = () => {
@@ -35,7 +34,7 @@ const MyToy = () => {
                 </thead>
                 <tbody>
                     {
-                        myToy.map(toy => <MyToyTable key={toy._id} toy={toy}></MyToyTable>)
+                        myToy.map(toy => <MyToyTable key={toy._id} toy={toy} setMyToy={setMyToy} myToy={myToy}></MyToyTable>)
                     }
                 </tbody>
             </table>
