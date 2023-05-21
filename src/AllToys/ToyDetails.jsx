@@ -5,20 +5,20 @@ import Footer from '../Pages/Shared/Footer/Footer';
 
 const ToyDetails = () => {
     const singleData = useLoaderData();
-    const { name, toyName, category, price, quantity, email, rating, detail } = singleData;
+    const { name, toyName, category, price, quantity, email, rating, detail,image } = singleData;
     return (
         <div>
             <Header></Header>
             <div className="card w-96 glass mx-auto mt-10">
-            <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="car!" /></figure>
+            <figure><img src={image} /></figure>
             <div className="card-body">
                 <h2 className="card-title">{toyName}</h2>
-                <p>{name}</p>
-                <p>{email}</p>
-                <p>{price}</p>
-                <p>{rating}</p>
-                <p>{quantity}</p>
-                <p>{detail}</p>
+                <p>Name:{name}</p>
+                <p>Email:{email}</p>
+                <p>Price:{price}</p>
+                <p>Rating:{rating}</p>
+                <p>Quantity:{quantity}</p>
+                <p>Details:{detail}</p>
             </div>
         </div>
         <Footer></Footer>
