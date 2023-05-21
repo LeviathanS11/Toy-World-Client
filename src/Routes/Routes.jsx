@@ -38,16 +38,16 @@ const router = createBrowserRouter([
     {
       path:'/allToys',
       element:<AllToys></AllToys>,
-      loader:()=>fetch('http://localhost:5000/toys')
+      loader:()=>fetch('https://assignment-11-server-leviathans11.vercel.app/toys')
     },
     {
       path:'/details/:id',
-      element:<ToyDetails></ToyDetails>,
-      loader:({params})=>fetch(`http://localhost:5000/toys/${params.id}`)
+      element:<PrivateRoutes><ToyDetails></ToyDetails></PrivateRoutes>,
+      loader:({params})=>fetch(`https://assignment-11-server-leviathans11.vercel.app/toys/${params.id}`)
     },
     {
       path:'/addToys',
-      element:<AddToys></AddToys>
+      element:<PrivateRoutes><AddToys></AddToys></PrivateRoutes>
     },
     {
       path:'/myToy',

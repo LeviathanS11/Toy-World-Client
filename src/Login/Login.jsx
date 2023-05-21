@@ -1,15 +1,19 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import {  GoogleAuthProvider } from "firebase/auth";
-import { Form, Link } from 'react-router-dom';
+import { Form, Link, useLocation, useNavigate } from 'react-router-dom';
 import Header from '../Pages/Shared/Header/Header';
 import Footer from '../Pages/Shared/Footer/Footer';
 
 
 
 const Login = () => {
+    const location=useLocation();
+    const navigate=useNavigate();
     const { signIn, handleGoogle } = useContext(AuthContext)
     const GoogleProvider = new GoogleAuthProvider();
+
+    const from=location.state?.form?.pathname || '/';
 
     const handleSignIn = event => {
         event.preventDefault();
@@ -24,6 +28,7 @@ const Login = () => {
                 setUser(loggedUser);
                 console.log(loggedUser)
                 form.reset();
+                navigate(from,{replace:true})
             })
             .catch(error => {
                 console.log(error)
@@ -35,6 +40,7 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser)
+                navigate(from,{replace:true})
             })
             .catch(error => {
                 console.log(error.message)
