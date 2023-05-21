@@ -13,29 +13,26 @@ const MyToyTable = ({ toy, setMyToy, myToy }) => {
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
-          }).then((result)=>{
-            if(result.isConfirmed){
+        }).then((result) => {
+            if (result.isConfirmed) {
                 fetch(`https://assignment-11-server-leviathans11.vercel.app/toys/${_id}`, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.deletedCount > 0) {
-                    Swal.fire(
-                        'Deleted!',
-                        'Your coffee has been deleted.',
-                        'success'
-                    )
-
-                }
-                const remaining = myToy.filter(T => T._id !== _id)
-                setMyToy(remaining)
-            })
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your coffee has been deleted.',
+                                'success'
+                            )
+                        }
+                        const remaining = myToy.filter(T => T._id !== _id)
+                        setMyToy(remaining)
+                    })
             }
-          })
-        
-
+        })
     }
     return (
         <tr>
