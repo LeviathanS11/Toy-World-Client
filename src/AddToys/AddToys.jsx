@@ -3,6 +3,7 @@ import Header from '../Pages/Shared/Header/Header';
 import { Form } from 'react-router-dom';
 import Footer from '../Pages/Shared/Footer/Footer';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const AddToys = () => {
     const {user}=useContext(AuthContext)
@@ -33,7 +34,15 @@ const AddToys = () => {
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log(data)
+            console.log(data);
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Toy added successfully',
+                    icon: 'success',
+                    confirmButtonText: 'ok'
+                  })
+            }
         })
     }
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { Form, useLoaderData } from 'react-router-dom';
 import Header from '../Pages/Shared/Header/Header';
 import Footer from '../Pages/Shared/Footer/Footer';
+import Swal from "sweetalert2";
 
 const ToyUpdate = () => {
     const update=useLoaderData();
@@ -26,7 +27,15 @@ const ToyUpdate = () => {
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log(data)
+            console.log(data);
+            if(data.modifiedCount>0){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Updated successfully',
+                    icon: 'success',
+                    confirmButtonText: 'ok'
+                })
+            }
         })
     }
     return (
